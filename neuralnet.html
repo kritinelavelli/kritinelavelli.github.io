@@ -69,10 +69,10 @@
                   <p>Once we figured out the metrics we would need to evaluate code, the next step was to find a way to calculate these metrics programmatically. Some static metrics such as Lines of Code are easier to calculate as compared to metrics such as Coupling Between Objects. However, we found that the best way to automate the process was to parse the code and build an Abstract Syntax Tree. This tree structure can then be traversed easily to calculate the metrics. Since most of our training data was Java Code we decided to use a Java Parser and run methods to calculate each of the static metrics.</p>
                   <h2>Designing and Training the Neural Network<br><small>Supervised Learning</small></h2>
                   <p>We used Neuroph Studio, a Java framework for Neural Networks and common learning architectures. We experimented with various architectures of networks giving them small amounts of data and measuring its learning rate and accuracy. This led us to an optimized 3 layer neural network with 13 inputs for each of the static metrics and 3 outputs indicating "Good Code", "Moderate quality code" and "Bad Code". The neural network was then trained using the calculated and normalized metric values as well as the output values provided in the training data set. The next step was to test the neural network to check its accuracy. We randomized a combination of data from the training data set as well as new Java code and fed it into the system to see if was able to accurately classify the code. We conducted several rounds of training and testing to give highly accurate results.</p>
-                  <img class="img-responsive" src="img/portfolio/network.png" alt="">
+                  <img class="img-responsive" src="img/portfolio/network.PNG" alt="">
                   <h2>User Interface<br><small>Creating an Application</small></h2>
                   <p>We created a Java swing application to display the results and make the system easier to use.</p>
-                  <img class="img-responsive" src="img/portfolio/SwingUI.png" alt="">
+                  <img class="img-responsive" src="img/portfolio/SwingUI.PNG" alt="">
                   
                 </div>
               </div>
