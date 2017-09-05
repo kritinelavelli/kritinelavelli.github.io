@@ -3,7 +3,8 @@
   "description": "Portfolio application website for Kriti Nelavelli: UX Designer + Developer. v2.0. Start Date: 2nd September 2017. Authors: Kriti Nelavelli",
   "main": "index.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^2.0.0"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
