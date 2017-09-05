@@ -1,7 +1,13 @@
 :host {
 	display: block;
 	border: 2px solid red;
-	margin: 5px;
-	@apply(--layout-flex);/*
-	@apply(--layout-vertical);*/
+	@apply --layout-horizontal;
+	@apply --shadow-elevation-4dp;
+	
 }
+:host>span {
+		border: 1px solid green;
+		margin: 5px;
+		@apply --layout-flex;
+		@apply --shadow-elevation-4dp;
+	}

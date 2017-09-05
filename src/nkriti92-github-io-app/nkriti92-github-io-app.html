@@ -1,10 +1,17 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../../src/kn-preview/kn-preview.html">
 <dom-module id="nkriti92-github-io-app">
   
   <template>
-  <link rel="stylesheet" type="text/css" href="../../src/nkriti92-github-io-app/nkriti92-github-io-app.css">
-    <h2>Hello [[prop1]]!</h2>
+    <style is="custom-style" include="iron-flex-layout paper-styles"></style>
+    <link rel="stylesheet" type="text/css" href="../../src/nkriti92-github-io-app/nkriti92-github-io-app.css">
+    <span>Hello [[prop1]]!</span>
+    <span> Hi </span>
+    <span> Three</span>
+    <!-- <kn-preview></kn-preview> -->
   </template>
+  <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <script src="nkriti92-github-io-app.js"></script>
 </dom-module>
