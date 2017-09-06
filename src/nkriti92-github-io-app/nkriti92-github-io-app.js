@@ -12,6 +12,16 @@
           }
         };
       }
+      thumbnailClicked() {
+
+      }
+      openPreview() {
+        this.$.plain.sizingTarget = this.$.plain.querySelector('.scrollable');
+        this.$.plain.open();
+      }
+      closePreview() {
+        this.$.plain.close();
+      }
     }
 
     window.customElements.define(Nkriti92GithubIoApp.is, Nkriti92GithubIoApp);
