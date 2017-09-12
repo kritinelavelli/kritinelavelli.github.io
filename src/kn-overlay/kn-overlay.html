@@ -5,13 +5,23 @@
   <template>
     <style>
       :host {
+        /*display: block;*/
         background: white;
-        color: black;
+        /*color: black;*/
         padding: 24px;
-        box-shadow: rgba(0, 0, 0, 0.24) -2px 5px 12px 0px, rgba(0, 0, 0, 0.12) 0px 0px 12px 0px;
+        /*box-shadow: rgba(0, 0, 0, 0.24) -2px 5px 12px 0px, rgba(0, 0, 0, 0.12) 0px 0px 12px 0px;*/
+        @apply(--shadow-elevation-6dp)
+      }
+      .content {
+        @apply --layout-horizontal;
       }
     </style>
-    <slot></slot>
+    <h2>[[heading]]</h2>
+    <div class="content">
+      <div>Placeholder</div>
+      <slot></slot>
+    </div>
+    <paper-button on-click="closeOverlay">Close</paper-button>
   </template>
 
 </dom-module>
@@ -23,11 +33,18 @@
   Polymer({
 
     is: 'kn-overlay',
-
     behaviors: [
       Polymer.IronOverlayBehavior
-    ]
-
+    ],
+    properties: {
+      heading: {
+        type: String
+      }
+    },
+    closeOverlay: function(event) {
+      //event.stopPropogation();
+      this.dispatchEvent(new CustomEvent('close-overlay', {}));
+    }
   });
 
 })();

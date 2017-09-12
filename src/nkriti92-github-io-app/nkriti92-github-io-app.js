@@ -3,17 +3,16 @@
      * @polymer
      */
     class Nkriti92GithubIoApp extends Polymer.Element {
-      static get is() { return 'nkriti92-github-io-app'; }
+      static get is() {
+        return 'nkriti92-github-io-app';
+      }
       static get properties() {
         return {
-          prop1: {
-            type: String,
-            value: 'Hello My App'
-          }
+          // prop1: {
+          //   type: String,
+          //   value: 'Hello My App'
+          // }
         };
-      }
-      thumbnailClicked() {
-
       }
       openPreview() {
         this.$.plain.sizingTarget = this.$.plain.querySelector('.scrollable');
