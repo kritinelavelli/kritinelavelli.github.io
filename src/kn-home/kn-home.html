@@ -2,160 +2,146 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/app-layout/app-grid/app-grid-style.html">
 <link rel="import" href="../../src/kn-overlay/kn-overlay.html">
 <link rel="import" href="../../src/kn-thumbnail/kn-thumbnail.html">
 <dom-module id="kn-home">
   <template>
-    <style is="custom-style" include="iron-flex-layout paper-styles">
+    <style is="custom-style" include="iron-flex-layout paper-styles app-grid-style">
       :host {
         display: block;
         /*border: 2px solid red;*/
         @apply --layout-vertical;
       }
-      .content {
-        @apply --layout-horizontal;
-      }
       .with-margin {
-        margin: 100px 60px;
+        margin: 100px 200px;
       }
       .scrollable {
         /*border: 1px solid lightgray;*/
         padding: 24px;
         @apply --layout-scroll;
       }
+      .thegrid {
+        display: block;
+        --app-grid-columns: 3;
+        --app-grid-gutter: 60px;
+        --app-grid-item-height: 100%;
+        margin: 0px 100px;
+      }
+      .item {
+        list-style: none;
+        background-color: white;
+      }
+      @media (max-width: 1200px) {
+        .thegrid {
+          --app-grid-columns: 2;
+          --app-grid-gutter: 60px;
+        }
+
+      }
+      @media (max-width: 800px) {
+        .thegrid {
+          --app-grid-columns: 1;
+          --app-grid-gutter: 60px;
+        }
+
+      }
+      .list {
+        padding: 0;
+        list-style: none;
+      }
     </style>
-    <div class='content'>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-    </div>
-    <div class='content'>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-    </div>
-    <div class='content'>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-    </div>
-    <div class='content'>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
-      <kn-thumbnail on-click='openPreview'>
-        <span>Something</span>
-      </kn-thumbnail>
+    <div class='thegrid list'>
+      <div class='app-grid' has-aspect-ratio>
+        <template is='dom-repeat' items='{{pages}}'>
+          <kn-thumbnail class='item' on-click='openPreview'>
+            <span>[[item]]</span>
+          </kn-thumbnail>
+        </template>
+      </div>
     </div>
     <kn-overlay on-close-overlay="closePreview" name="one" id="plain" class="with-margin " tabindex="-1" heading="This overlay has a scrolling child.">
-      <div class="scrollable">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
+      <template is='dom-if' if='[[check("gameDesign")]]'>
+        <div class="scrollable">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem
+        ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem
+        ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </template>
+      <template is='dom-if' if='[[check("hvz")]]'>
+        <div class="scrollable">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in culpa qui officia deserunt mollit anim id est laborum.<br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem
+        ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </template>
     </kn-overlay>
   </template>
 <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 </dom-module>
 <script>
-  /**
-  * @customElement
-  * @polymer
-  */
-  class KnHome extends Polymer.Element {
-    static get is() { 
-      return 'kn-home'; 
-    }
-    static get properties() {
-      return {
-        // prop1: {
-        //   type: String,
-        //   value: 'Hello My App'
-        // }
-      };
-    }
-    openPreview() {
-      this.$.plain.sizingTarget = this.$.plain.querySelector('.scrollable');
-      this.$.plain.open();
-    }
-    closePreview() {
-      this.$.plain.close();
-    }
-  }
+  HTMLImports.whenReady(function() {
 
-  window.customElements.define(KnHome.is, KnHome);
+    Polymer({
+
+      is: 'kn-home',
+      properties: {
+        selectedProject: {
+          type: String,
+          value: 'gameDesign'
+        },
+        pages: {
+          type: Array,
+          value: ['gameDesign', 'craigslist', 'hvz', 'globalWarming', 'stackOverflow']
+        }
+      },
+      openPreview(event) {
+        console.log(event.model.item);
+        this.selectedProject = event.model.item;
+        this.$.plain.sizingTarget = this.$.plain.querySelector('.scrollable');
+        this.$.plain.open();
+      },
+      closePreview() {
+        this.$.plain.close();
+      },
+      attached: function() {
+        this._updateGridStyles = this._updateGridStyles || function() {
+          this.updateStyles();
+        }.bind(this);
+        window.addEventListener('resize', this._updateGridStyles);
+      },
+
+      detached: function() {
+        window.removeEventListener('resize', this._updateGridStyles);
+      },
+      check: function(string) {
+        console.log(string == this.selectedProject);
+        return string==this.selectedProject;
+      }
+
+    });
+
+  });
+
 </script>

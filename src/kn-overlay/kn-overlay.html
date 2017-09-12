@@ -15,10 +15,15 @@
       .content {
         @apply --layout-horizontal;
       }
+      .picture {
+        padding: 24px;
+        margin: 24px;
+        width: 300px;
+      }
     </style>
     <h2>[[heading]]</h2>
     <div class="content">
-      <div>Placeholder</div>
+      <div class="picture">Placeholder</div>
       <slot></slot>
     </div>
     <paper-button on-click="closeOverlay">Close</paper-button>
@@ -42,7 +47,7 @@
       }
     },
     closeOverlay: function(event) {
-      //event.stopPropogation();
+      event.cancelBubble = true;
       this.dispatchEvent(new CustomEvent('close-overlay', {}));
     }
   });
