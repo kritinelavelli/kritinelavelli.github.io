@@ -101,16 +101,16 @@
     </style>
 
     <app-header-layout fullbleed>
-      <app-header condenses fixed
+      <app-header condenses fixed style='background-image:url({{image}})';
         effects="waterfall resize-snapped-title fade-background"
         effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "100ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
       <app-toolbar>
         <a href='/home'><paper-button><img class='logo' src='/img/logooutline.png' alt='logo'></paper-button></a>
-        <h4 condensed-title>Kriti Nelavelli</h4>
+        <h4 condensed-title>[[title]]</h4>
         <a href='/about'><paper-button>About</paper-button></a>
         <a href='/resume'><paper-button>Resume</paper-button></a>
       </app-toolbar>
-      <h1 main-title>Kriti Nelavelli<br><small>Design + Build</small></h1>
+      <h1 main-title>[[title]]<br><small>[[subtitle]]</small></h1>
     </app-header>
 
       <div class="content">

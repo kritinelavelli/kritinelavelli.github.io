@@ -7,6 +7,7 @@
       :host {
         /*display: block;*/
         background: white;
+        z-index: 150;
         /*color: black;*/
         padding: 24px;
         /*box-shadow: rgba(0, 0, 0, 0.24) -2px 5px 12px 0px, rgba(0, 0, 0, 0.12) 0px 0px 12px 0px;*/
@@ -16,9 +17,11 @@
         @apply --layout-horizontal;
       }
       .picture {
-        padding: 24px;
-        margin: 24px;
-        width: 300px;
+        width: 500px;
+      }
+      .thumbnailImage {
+        height: 100%;
+        width: 100%;
       }
       a, a:link, a:visited, a:active, a:hover {
         text-decoration: none;
@@ -27,7 +30,7 @@
     </style>
     <h2>[[page.key]]</h2>
     <div class="content">
-      <div class="picture">Placeholder</div>
+      <div class="picture"><img class='thumbnailImage' src='img/[[page.image]]'></div>
       <div>
         <slot></slot>
         <paper-button on-click="closeOverlay">Close</paper-button>

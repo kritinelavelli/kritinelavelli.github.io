@@ -16,7 +16,7 @@
         @apply --layout-vertical;
       }
       .with-margin {
-        margin: 100px 200px;
+        margin: 165px 350px;
       }
       .scrollable {
         /*border: 1px solid lightgray;*/
@@ -52,17 +52,21 @@
         padding: 0;
         list-style: none;
       }
+      .thumbnailImage {
+        height: 100%;
+        width: 100%;
+      }
     </style>
     <div class='thegrid list'>
       <div class='app-grid' has-aspect-ratio>
         <template is='dom-repeat' items='{{pages}}'>
           <kn-thumbnail class='item' on-click='openPreview'>
-            <span>[[item.key]]</span>
+            <img class='thumbnailImage' src='img/[[item.image]]'>
           </kn-thumbnail>
         </template>
       </div>
     </div>
-    <kn-overlay on-close-overlay="closePreview" name="one" id="plain" class="with-margin " tabindex="-1" page="[[selectedProject]]">
+    <kn-overlay on-close-overlay="closePreview" id="plain" class="with-margin " page="[[selectedProject]]">
       <div class="scrollable">
         [[selectedProject.abstract]]
       </div>
