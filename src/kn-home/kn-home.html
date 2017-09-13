@@ -2,11 +2,13 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/app-layout/app-grid/app-grid-style.html">
 <link rel="import" href="../../src/kn-overlay/kn-overlay.html">
 <link rel="import" href="../../src/kn-thumbnail/kn-thumbnail.html">
 <dom-module id="kn-home">
   <template>
+    <iron-ajax auto url='/src/pages.json' handle-as='json' on-response='handleResponse'></iron-ajax>
     <style is="custom-style" include="iron-flex-layout paper-styles app-grid-style">
       :host {
         display: block;
@@ -55,47 +57,15 @@
       <div class='app-grid' has-aspect-ratio>
         <template is='dom-repeat' items='{{pages}}'>
           <kn-thumbnail class='item' on-click='openPreview'>
-            <span>[[item]]</span>
+            <span>[[item.key]]</span>
           </kn-thumbnail>
         </template>
       </div>
     </div>
-    <kn-overlay on-close-overlay="closePreview" name="one" id="plain" class="with-margin " tabindex="-1" heading="This overlay has a scrolling child.">
-      <template is='dom-if' if='[[check("gameDesign")]]'>
-        <div class="scrollable">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem
-        ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem
-        ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </template>
-      <template is='dom-if' if='[[check("hvz")]]'>
-        <div class="scrollable">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-        aute irure dolor in reprehenderit in culpa qui officia deserunt mollit anim id est laborum.<br><br>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem
-        ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </template>
+    <kn-overlay on-close-overlay="closePreview" name="one" id="plain" class="with-margin " tabindex="-1" page="[[selectedProject]]">
+      <div class="scrollable">
+        [[selectedProject.abstract]]
+      </div>
     </kn-overlay>
   </template>
 <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
@@ -108,16 +78,13 @@
       is: 'kn-home',
       properties: {
         selectedProject: {
-          type: String,
-          value: 'gameDesign'
+          type: Object
         },
         pages: {
-          type: Array,
-          value: ['gameDesign', 'craigslist', 'hvz', 'globalWarming', 'stackOverflow']
+          type: Array
         }
       },
       openPreview(event) {
-        console.log(event.model.item);
         this.selectedProject = event.model.item;
         this.$.plain.sizingTarget = this.$.plain.querySelector('.scrollable');
         this.$.plain.open();
@@ -135,9 +102,8 @@
       detached: function() {
         window.removeEventListener('resize', this._updateGridStyles);
       },
-      check: function(string) {
-        console.log(string == this.selectedProject);
-        return string==this.selectedProject;
+      handleResponse: function (data) {
+        this.pages = data.detail.response;
       }
 
     });

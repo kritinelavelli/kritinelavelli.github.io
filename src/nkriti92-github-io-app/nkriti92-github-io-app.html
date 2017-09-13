@@ -12,6 +12,7 @@
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../src/kn-home/kn-home.html">
+<link rel="import" href="../../src/kn-hvz/kn-hvz.html">
 <link rel="import" href="../../src/kn-about/kn-about.html">
 <dom-module id="nkriti92-github-io-app">
   
@@ -22,7 +23,10 @@
         font-family: 'Roboto', 'Noto', sans-serif;
         background-color: #eee;
       }
-
+      a, a:link, a:visited, a:active, a:hover {
+        text-decoration: none;
+        color: black;
+      }
       app-header {
         position: fixed;
         top: 0;
@@ -74,7 +78,7 @@
         text-overflow: ellipsis;
       }
 
-      [condensed-title] i {
+      [condensed-title] {
         font-weight: 100;
         font-style: normal;
       }
@@ -90,6 +94,10 @@
           left: 85px;
         }
       }
+      .logo {
+        width: 54px;
+        height: 54px;
+      }
     </style>
 
     <app-header-layout fullbleed>
@@ -97,10 +105,12 @@
         effects="waterfall resize-snapped-title fade-background"
         effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "100ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
       <app-toolbar>
+        <a href='/home'><paper-button><img class='logo' src='/img/logooutline.png' alt='logo'></paper-button></a>
         <h4 condensed-title>Kriti Nelavelli</h4>
-        <paper-icon-button icon="search"></paper-icon-button>
+        <a href='/about'><paper-button>About</paper-button></a>
+        <a href='/resume'><paper-button>Resume</paper-button></a>
       </app-toolbar>
-      <h1 main-title>Kriti Nelavelli</h1>
+      <h1 main-title>Kriti Nelavelli<br><small>Design + Build</small></h1>
     </app-header>
 
       <div class="content">
@@ -110,6 +120,7 @@
           <kn-home name=""></kn-home>
           <kn-home name="home"></kn-home>
           <kn-about name="about"></kn-about>
+          <kn-hvz name="hvz"></kn-hvz>
           <kn-resume name="resume"></kn-resume>
         </iron-pages>
       </div>

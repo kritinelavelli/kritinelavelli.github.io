@@ -20,13 +20,21 @@
         margin: 24px;
         width: 300px;
       }
+      a, a:link, a:visited, a:active, a:hover {
+        text-decoration: none;
+        color: black;
+      }
     </style>
-    <h2>[[heading]]</h2>
+    <h2>[[page.key]]</h2>
     <div class="content">
       <div class="picture">Placeholder</div>
-      <slot></slot>
+      <div>
+        <slot></slot>
+        <paper-button on-click="closeOverlay">Close</paper-button>
+        <a href='/[[page.key]]'><paper-button on-click="closeOverlay">Read More</paper-button></a>
+      </div>
     </div>
-    <paper-button on-click="closeOverlay">Close</paper-button>
+    
   </template>
 
 </dom-module>
@@ -42,8 +50,8 @@
       Polymer.IronOverlayBehavior
     ],
     properties: {
-      heading: {
-        type: String
+      page: {
+        type: Object
       }
     },
     closeOverlay: function(event) {
