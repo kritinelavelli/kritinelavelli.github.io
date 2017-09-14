@@ -15,9 +15,6 @@
         /*border: 2px solid red;*/
         @apply --layout-vertical;
       }
-      .with-margin {
-        margin: 165px 350px;
-      }
       .scrollable {
         /*border: 1px solid lightgray;*/
         padding: 24px;
@@ -44,7 +41,8 @@
       @media (max-width: 800px) {
         .thegrid {
           --app-grid-columns: 1;
-          --app-grid-gutter: 60px;
+          --app-grid-gutter: 20px;
+          margin: 0px 75px;
         }
 
       }
@@ -66,7 +64,7 @@
         </template>
       </div>
     </div>
-    <kn-overlay on-close-overlay="closePreview" id="plain" class="with-margin " page="[[selectedProject]]">
+    <kn-overlay on-close-overlay="closePreview" id="plain" class="with-margin" page="[[selectedProject]]">
       <div class="scrollable">
         [[selectedProject.abstract]]
       </div>

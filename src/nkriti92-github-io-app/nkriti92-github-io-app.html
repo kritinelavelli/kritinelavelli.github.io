@@ -11,8 +11,15 @@
 <link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/social-links/social-link.html">
 <link rel="import" href="../../src/kn-home/kn-home.html">
 <link rel="import" href="../../src/kn-hvz/kn-hvz.html">
+<link rel="import" href="../../src/kn-craigslist/kn-craigslist.html">
+<link rel="import" href="../../src/kn-stack-overflow/kn-stack-overflow.html">
+<link rel="import" href="../../src/kn-static-code-analyzer/kn-static-code-analyzer.html">
+<link rel="import" href="../../src/kn-global-warming/kn-global-warming.html">
+<link rel="import" href="../../src/kn-hvz/kn-hvz.html">
+<link rel="import" href="../../src/kn-game-design/kn-game-design.html">
 <link rel="import" href="../../src/kn-about/kn-about.html">
 <dom-module id="nkriti92-github-io-app">
   
@@ -32,7 +39,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 440px;
+        height: 240px;
         color: #000;
         z-index: 100;
         /*background-image: url(https://app-layout-assets.appspot.com/assets/bg3.jpg);*/
@@ -58,7 +65,7 @@
       }
 
       .content {
-        padding-top: 440px;
+        padding-top: 240px;
         @apply --layout-flex;
       }
 
@@ -101,14 +108,14 @@
     </style>
 
     <app-header-layout fullbleed>
-      <app-header condenses fixed style='background-image:url({{image}})';
+      <app-header condenses fixed style='background-image:url(/*{{image}}*/)'
         effects="waterfall resize-snapped-title fade-background"
         effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "100ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
       <app-toolbar>
-        <a href='/home'><paper-button><img class='logo' src='/img/logooutline.png' alt='logo'></paper-button></a>
+        <a href='/'><paper-button><img class='logo' src='/img/logooutline.png' alt='logo'></paper-button></a>
         <h4 condensed-title>[[title]]</h4>
         <a href='/about'><paper-button>About</paper-button></a>
-        <a href='/resume'><paper-button>Resume</paper-button></a>
+        <a href='/Resume.pdf' target="_blank"><paper-button>Resume</paper-button></a>
       </app-toolbar>
       <h1 main-title>[[title]]<br><small>[[subtitle]]</small></h1>
     </app-header>
@@ -121,11 +128,19 @@
           <kn-home name="home"></kn-home>
           <kn-about name="about"></kn-about>
           <kn-hvz name="hvz"></kn-hvz>
-          <kn-resume name="resume"></kn-resume>
+          <kn-stack-overflow name="stackOverflow"></kn-stack-overflow>
+          <kn-craigslist name="craigslist"></kn-craigslist>
+          <kn-static-code-analyzer name="staticCodeAnalyzer"></kn-static-code-analyzer>
+          <kn-global-warming name="globalWarming"></kn-global-warming>
+          <kn-game-design name="gameDesign"></kn-game-design>
         </iron-pages>
       </div>
       <footer>
         &copy; Kriti Nelavelli
+        <social-link network="github" href="https://github.com/nkriti92" height="15px" color="grey"></social-link>
+        <social-link network="pinterest" href="https://in.pinterest.com/kritinelavelli/" height="15px" color="grey"></social-link>
+        <social-link network="linkedin" href="https://www.linkedin.com/in/kritinelavelli" height="15px" color="grey"></social-link>
+        <social-link network="behance" href="https://www.behance.net/nkriti92a5da" height="15px" color="grey"></social-link>
       </footer>
     </app-header-layout>
   </template>
