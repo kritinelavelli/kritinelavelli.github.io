@@ -1,0 +1,43 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../src/kn-overlay/kn-overlay.html">
+<link rel="import" href="../../src/kn-thumbnail/kn-thumbnail.html">
+<dom-module id="kn-game-design">
+  <template>
+    <style is="custom-style" include="iron-flex-layout paper-styles">
+        :host {
+          display: block;
+          /*border: 2px solid red;*/
+          @apply --layout-vertical;
+        }
+        .content{
+          padding: 24px;
+          max-width: 1155px;
+          margin: auto;
+        }
+    </style>
+    <div class="content">
+      
+    </div>
+  </template>
+  <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+</dom-module>
+<script>
+    class KnGameDesign extends Polymer.Element {
+      static get is() { 
+        return 'kn-game-design';
+      }
+      static get properties() {
+        return {
+          // prop1: {
+          //   type: String,
+          //   value: 'Hello My App'
+          // }
+        };
+      }
+    }
+
+    window.customElements.define(KnGameDesign.is, KnGameDesign);
+</script>
