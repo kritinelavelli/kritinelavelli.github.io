@@ -57,7 +57,7 @@
       <div class="text">
         <slot></slot>
         <div class="buttons"><paper-button on-click="closeOverlay">Close</paper-button>
-        <a name="[[page.key]]" href='[[rootPath]][[page.key]]'><paper-button on-click="closeOverlay">Read More</paper-button></a></div>
+        <paper-button on-click="openPage">Read More</paper-button></div>
       </div>
     </div>
     
@@ -80,6 +80,10 @@
         closeOverlay: function(event) {
           event.cancelBubble = true;
           this.dispatchEvent(new CustomEvent('close-overlay', {}));
+        },
+        openPage: function(event) {
+          event.cancelBubble = true;
+          this.dispatchEvent(new CustomEvent('open-page', {}));
         }
       });
 

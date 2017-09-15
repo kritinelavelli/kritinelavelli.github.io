@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","cbfb28f5b91055e449612bcd249e8aaf"],["src/kn-about.html","60c35a346249423bb99a373fc25a1b49"],["src/kn-craigslist.html","be5b1b25331e81d3814d1ee9ed5effa6"],["src/kn-game-design.html","dda9c14dcee047b61e1327df54650734"],["src/kn-global-warming.html","68e08cf713a8f910edfcff4dae7e93d6"],["src/kn-home.html","7f1b44ad305bc7b305009d0b4b2d36da"],["src/kn-hvz.html","0b47873c9756f51664430f9875e79c80"],["src/kn-stack-overflow.html","f61a26fa196fcfb8c44ef7633959f88f"],["src/kn-static-code-analyzer.html","49b2204c64c2c2f8b6fdc11bd775d2ca"],["src/nkriti92-github-io-app.html","a8ff7fcce43515dfa572410299405cad"]];
+var precacheConfig = [["index.html","cbfb28f5b91055e449612bcd249e8aaf"],["src/nkriti92-github-io-app.html","13939a2e91bb527386235ba6bc85b366"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 

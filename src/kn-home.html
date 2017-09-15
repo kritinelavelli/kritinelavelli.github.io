@@ -64,7 +64,7 @@
         </template>
       </div>
     </div>
-    <kn-overlay on-close-overlay="closePreview" id="plain" class="with-margin" page="[[selectedProject]]">
+    <kn-overlay on-close-overlay="closePreview" on-open-page="openPage" id="plain" class="with-margin" page="[[selectedProject]]">
       <div class="scrollable">
         [[selectedProject.abstract]]
       </div>
@@ -83,6 +83,11 @@
         },
         pages: {
           type: Array
+        },
+        page: {
+          type: String,
+          notify: true,
+          reflectToAttribute: true
         }
       },
       openPreview(event) {
@@ -91,6 +96,10 @@
         this.$.plain.open();
       },
       closePreview() {
+        this.$.plain.close();
+      },
+      openPage() {
+        this.page = this.selectedProject.key;
         this.$.plain.close();
       },
       attached: function() {

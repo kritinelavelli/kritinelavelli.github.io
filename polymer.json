@@ -1,16 +1,6 @@
 {
   "entrypoint": "index.html",
   "shell": "src/nkriti92-github-io-app.html",
-  "fragments": [
-    "src/kn-home.html",
-    "src/kn-hvz.html",
-    "src/kn-craigslist.html",
-    "src/kn-stack-overflow.html",
-    "src/kn-static-code-analyzer.html",
-    "src/kn-about.html",
-    "src/kn-game-design.html",
-    "src/kn-global-warming.html"
-  ],
   "sources": [
     "src/**/*",
     "img/**/*",

@@ -12,14 +12,14 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/social-links/social-link.html">
-<link rel="lazy-import" href="kn-home.html">
-<link rel="lazy-import" href="kn-hvz.html">
-<link rel="lazy-import" href="kn-craigslist.html">
-<link rel="lazy-import" href="kn-stack-overflow.html">
-<link rel="lazy-import" href="kn-static-code-analyzer.html">
-<link rel="lazy-import" href="kn-global-warming.html">
-<link rel="lazy-import" href="kn-game-design.html">
-<link rel="lazy-import" href="kn-about.html">
+<link rel="import" href="kn-home.html">
+<link rel="import" href="kn-hvz.html">
+<link rel="import" href="kn-craigslist.html">
+<link rel="import" href="kn-stack-overflow.html">
+<link rel="import" href="kn-static-code-analyzer.html">
+<link rel="import" href="kn-global-warming.html">
+<link rel="import" href="kn-game-design.html">
+<link rel="import" href="kn-about.html">
 <dom-module id="nkriti92-github-io-app">
   
   <template>
@@ -111,20 +111,20 @@
         effects="waterfall resize-snapped-title fade-background"
         effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "100ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
       <app-toolbar>
-        <a name="home" href='[[rootPath]]home'><paper-button><img class='logo' src='/img/logooutline.png' alt='logo'></paper-button></a>
+        <paper-button on-click='openHome'><img class='logo' src='/img/logooutline.png' alt='logo'></paper-button>
         <h4 condensed-title>[[title]]</h4>
-        <a name="about" href='[[rootPath]]about'><paper-button>About</paper-button></a>
-        <a href='/Resume.pdf' target="_blank"><paper-button>Resume</paper-button></a>
+        <paper-button on-click='openAbout'>About</paper-button>
+        <a target="_blank" href='/Resume.pdf'><paper-button>Resume</paper-button></a>
       </app-toolbar>
       <h1 main-title>[[title]]<br><small>[[subtitle]]</small></h1>
     </app-header>
 
       <div class="content">
-        <app-location route="{{route}}" url-space-regex="^[[rootPath]]" use-hash-as-path></app-location>
-        <app-route route="{{route}}" pattern="[[rootPath]]:page" data = "{{routeData}}" tail="{{subroute}}"></app-route>
+       <!--  <app-location route="{{route}}" url-space-regex="^[[rootPath]]" use-hash-as-path></app-location>
+        <app-route route="{{route}}" pattern="[[rootPath]]:page" data = "{{routeData}}" tail="{{subroute}}"></app-route> -->
         <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-          <kn-home name=""></kn-home>
-          <kn-home name="home"></kn-home>
+          <kn-home name="" page='{{page}}'></kn-home>
+          <kn-home name="home" page='{{page}}'></kn-home>
           <kn-about name="about"></kn-about>
           <kn-hvz name="hvz"></kn-hvz>
           <kn-stack-overflow name="stack-overflow"></kn-stack-overflow>
@@ -152,12 +152,13 @@
       return {
         page: {
           type: String,
+          value: '',
           reflectToAttribute: true,
           observer: '_pageChanged',
         },
-        routeData: Object,
-        subroute: String,
-        rootPath: String,
+        // routeData: Object,
+        // subroute: String,
+        // rootPath: String,
         image: {
           type: String
         },
@@ -169,12 +170,12 @@
         }
       };
     }
-    static get observers() {
-      return [
-        '_routePageChanged(routeData.page)',
-      ];
-    }
-    _routePageChanged(page) {
+    // static get observers() {
+    //   return [
+    //     '_routePageChanged(routeData.page)',
+    //   ];
+    // }
+    _pageChanged(page) {
       this.page = page || 'home';
       if (page == 'hvz') {
         this.image = '/img/IMG_7873.JPG';
@@ -212,18 +213,24 @@
         this.subtitle = 'Design + Build';
       }
     }
-    _pageChanged(page) {
-      var resolvedPageUrl = this.resolveUrl('kn-' + page + '.html');
-      Polymer.importHref(
-          resolvedPageUrl,
-          null,
-          this._showPage404.bind(this),
-          true);
+    openAbout() {
+      this.page = 'about';
     }
+    openHome() {
+      this.page = '';
+    }
+    // _pageChanged(page) {
+    //   var resolvedPageUrl = this.resolveUrl('kn-' + page + '.html');
+    //   Polymer.importHref(
+    //       resolvedPageUrl,
+    //       null,
+    //       this._showPage404.bind(this),
+    //       true);
+    // }
 
-    _showPage404() {
-      this.page = 'home';
-    }
+    // _showPage404() {
+    //   this.page = 'home';
+    // }
     openPreview() {
       this.$.plain.sizingTarget = this.$.plain.querySelector('.scrollable');
       this.$.plain.open();
