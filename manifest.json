@@ -2,6 +2,6 @@
   "name": "nkriti92-github-io",
   "short_name": "nkriti92-github-io",
   "description": "Portfolio application website for Kriti Nelavelli: UX Designer + Developer. v2.0. Start Date: 2nd September 2017. Authors: Kriti Nelavelli",
-  "start_url": "/?homescreen=1",
+  "start_url": "/",
   "display": "standalone"
 }
