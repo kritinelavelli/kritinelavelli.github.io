@@ -3,17 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Kriti Nelavelli">
     <title>Kriti Nelavelli</title>
     <meta name="description" content="Portfolio application website for Kriti Nelavelli: UX Designer + Developer. v2.0. Start Date: 2nd September 2017. Authors: Kriti Nelavelli">
+    <base href="/">
+    <link rel="manifest" href="manifest.json">
 
-    <link rel="manifest" href="/manifest.json">
-
-    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
-
-    <link rel="import" href="/src/nkriti92-github-io-app.html">
-    <link rel="shortcut icon" href="PuzzleLogoIco.ico">
     
+    <link rel="shortcut icon" href="PuzzleLogoIco.ico">
+    <script>
+      window.Polymer = {rootPath: '/'};
+
+      // Load and register pre-caching Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js', {
+            scope: Polymer.rootPath,
+          });
+        });
+      }
+    </script>
+    <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="src/nkriti92-github-io-app.html">
   </head>
   <body>
     <style>
@@ -25,5 +37,8 @@
       }
     </style>
     <nkriti92-github-io-app></nkriti92-github-io-app>
+    <noscript>
+      Please enable JavaScript to view this website.
+    </noscript>
   </body>
 </html>

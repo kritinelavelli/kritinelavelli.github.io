@@ -12,14 +12,14 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/social-links/social-link.html">
-<link rel="import" href="../src/kn-home.html">
-<link rel="import" href="../src/kn-hvz.html">
-<link rel="import" href="../src/kn-craigslist.html">
-<link rel="import" href="../src/kn-stack-overflow.html">
-<link rel="import" href="../src/kn-static-code-analyzer.html">
-<link rel="import" href="../src/kn-global-warming.html">
-<link rel="import" href="../src/kn-game-design.html">
-<link rel="import" href="../src/kn-about.html">
+<link rel="lazy-import" href="kn-home.html">
+<link rel="lazy-import" href="kn-hvz.html">
+<link rel="lazy-import" href="kn-craigslist.html">
+<link rel="lazy-import" href="kn-stack-overflow.html">
+<link rel="lazy-import" href="kn-static-code-analyzer.html">
+<link rel="lazy-import" href="kn-global-warming.html">
+<link rel="lazy-import" href="kn-game-design.html">
+<link rel="lazy-import" href="kn-about.html">
 <dom-module id="nkriti92-github-io-app">
   
   <template>
@@ -111,27 +111,27 @@
         effects="waterfall resize-snapped-title fade-background"
         effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "100ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
       <app-toolbar>
-        <a href='/'><paper-button><img class='logo' src='/img/logooutline.png' alt='logo'></paper-button></a>
+        <a name="home" href='[[rootPath]]home'><paper-button><img class='logo' src='/img/logooutline.png' alt='logo'></paper-button></a>
         <h4 condensed-title>[[title]]</h4>
-        <a href='/about'><paper-button>About</paper-button></a>
+        <a name="about" href='[[rootPath]]about'><paper-button>About</paper-button></a>
         <a href='/Resume.pdf' target="_blank"><paper-button>Resume</paper-button></a>
       </app-toolbar>
       <h1 main-title>[[title]]<br><small>[[subtitle]]</small></h1>
     </app-header>
 
       <div class="content">
-        <app-location route="{{route}}"></app-location>
-        <app-route route="{{route}}" pattern="/:view" data = "{{routeData}}" tail="{{subroute}}"></app-route>
-        <iron-pages selected="[[routeData.view]]" attr-for-selected="name">
+        <app-location route="{{route}}" url-space-regex="^[[rootPath]]"></app-location>
+        <app-route route="{{route}}" pattern="[[rootPath]]:page" data = "{{routeData}}" tail="{{subroute}}"></app-route>
+        <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
           <kn-home name=""></kn-home>
           <kn-home name="home"></kn-home>
           <kn-about name="about"></kn-about>
           <kn-hvz name="hvz"></kn-hvz>
-          <kn-stack-overflow name="stackOverflow"></kn-stack-overflow>
+          <kn-stack-overflow name="stack-overflow"></kn-stack-overflow>
           <kn-craigslist name="craigslist"></kn-craigslist>
-          <kn-static-code-analyzer name="staticCodeAnalyzer"></kn-static-code-analyzer>
-          <kn-global-warming name="globalWarming"></kn-global-warming>
-          <kn-game-design name="gameDesign"></kn-game-design>
+          <kn-static-code-analyzer name="static-code-analyzer"></kn-static-code-analyzer>
+          <kn-global-warming name="global-warming"></kn-global-warming>
+          <kn-game-design name="game-design"></kn-game-design>
         </iron-pages>
       </div>
       <footer>
@@ -143,6 +143,96 @@
       </footer>
     </app-header-layout>
   </template>
-  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-  <script src="nkriti92-github-io-app.js"></script>
+  <script>
+    class Nkriti92GithubIoApp extends Polymer.Element {
+    static get is() {
+      return 'nkriti92-github-io-app';
+    }
+    static get properties() {
+      return {
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged',
+        },
+        routeData: Object,
+        subroute: String,
+        rootPath: String,
+        image: {
+          type: String
+        },
+        title: {
+          type: String
+        },
+        subtitle: {
+          type: String
+        }
+      };
+    }
+    static get observers() {
+      return [
+        '_routePageChanged(routeData.page)',
+      ];
+    }
+    _routePageChanged(page) {
+      this.page = page || 'home';
+      if (page == 'hvz') {
+        this.image = '/img/IMG_7873.JPG';
+        this.title = 'Humans vs Zombies';
+        this.subtitle = 'A User Centered Design Project';
+      }
+      else if (page == 'game-design' ) {
+        this.image = '';
+        this.title = 'HellWorld';
+        this.subtitle = 'Video Game Design';
+      }
+      else if (page == 'craigslist' ) {
+        this.image = '';
+        this.title = 'Craigslist Redesign';
+        this.subtitle = 'Craigslist for Students ';
+      }
+      else if (page == 'global-warming' ) {
+        this.image = '';
+        this.title = 'Climate Change and Global Warming';
+        this.subtitle = 'Data Visualization';
+      }
+      else if (page == 'stack-overflow' ) {
+        this.image = '';
+        this.title = 'Stack Overflow Reputation';
+        this.subtitle = 'Data Visualization';
+      }
+      else if (page == 'static-code-analyzer' ) {
+        this.image = '';
+        this.title = 'Static Code Analyzer';
+        this.subtitle = 'Neural Network';
+      }
+      else {
+        this.image = '';
+        this.title = 'Kriti Nelavelli';
+        this.subtitle = 'Design + Build';
+      }
+    }
+    _pageChanged(page) {
+      var resolvedPageUrl = this.resolveUrl('kn-' + page + '.html');
+      Polymer.importHref(
+          resolvedPageUrl,
+          null,
+          this._showPage404.bind(this),
+          true);
+    }
+
+    _showPage404() {
+      this.page = 'home';
+    }
+    openPreview() {
+      this.$.plain.sizingTarget = this.$.plain.querySelector('.scrollable');
+      this.$.plain.open();
+    }
+    closePreview() {
+      this.$.plain.close();
+    }
+  }
+
+  window.customElements.define(Nkriti92GithubIoApp.is, Nkriti92GithubIoApp);
+  </script>
 </dom-module>

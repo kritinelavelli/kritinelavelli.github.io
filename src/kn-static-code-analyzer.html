@@ -2,8 +2,6 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../src/kn-overlay.html">
-<link rel="import" href="../src/kn-thumbnail.html">
 <dom-module id="kn-static-code-analyzer">
   <template>
     <style is="custom-style" include="iron-flex-layout paper-styles">
@@ -39,9 +37,7 @@
       <p>We created a Java swing application to display the results and make the system easier to use.</p>
     </div>
   </template>
-  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-</dom-module>
-<script>
+  <script>
     class KnStaticCodeAnalyzer extends Polymer.Element {
       static get is() { 
         return 'kn-static-code-analyzer';
@@ -57,4 +53,5 @@
     }
 
     window.customElements.define(KnStaticCodeAnalyzer.is, KnStaticCodeAnalyzer);
-</script>
+  </script>
+</dom-module>

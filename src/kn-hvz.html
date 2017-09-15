@@ -2,8 +2,6 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../src/kn-overlay.html">
-<link rel="import" href="../src/kn-thumbnail.html">
 <dom-module id="kn-hvz">
   <template>
     <style is="custom-style" include="iron-flex-layout paper-styles">
@@ -92,9 +90,7 @@
       <p align="justify">[1] Jennett, Charlene, et al. "Measuring and defining the experience of immersion in games." <cite>International journal of human-computer studies</cite> 66.9 (2008): 641-661.</p>
     </div>
   </template>
-  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-</dom-module>
-<script>
+  <script>
     class KnHvz extends Polymer.Element {
       static get is() { 
         return 'kn-hvz';
@@ -110,4 +106,5 @@
     }
 
     window.customElements.define(KnHvz.is, KnHvz);
-</script>
+  </script>
+</dom-module>

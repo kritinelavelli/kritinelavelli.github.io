@@ -55,35 +55,34 @@
       <div class="text">
         <slot></slot>
         <div class="buttons"><paper-button on-click="closeOverlay">Close</paper-button>
-        <a href='/[[page.key]]'><paper-button on-click="closeOverlay">Read More</paper-button></a></div>
+        <a name="[[page.key]]" href='[[rootPath]][[page.key]]'><paper-button on-click="closeOverlay">Read More</paper-button></a></div>
       </div>
     </div>
     
   </template>
+  <script>
 
+    (function() {
+
+      Polymer({
+
+        is: 'kn-overlay',
+        behaviors: [
+          Polymer.IronOverlayBehavior
+        ],
+        properties: {
+          page: {
+            type: Object
+          }
+        },
+        closeOverlay: function(event) {
+          event.cancelBubble = true;
+          this.dispatchEvent(new CustomEvent('close-overlay', {}));
+        }
+      });
+
+    })();
+
+  </script>
 </dom-module>
 
-<script>
-
-(function() {
-
-  Polymer({
-
-    is: 'kn-overlay',
-    behaviors: [
-      Polymer.IronOverlayBehavior
-    ],
-    properties: {
-      page: {
-        type: Object
-      }
-    },
-    closeOverlay: function(event) {
-      event.cancelBubble = true;
-      this.dispatchEvent(new CustomEvent('close-overlay', {}));
-    }
-  });
-
-})();
-
-</script>
