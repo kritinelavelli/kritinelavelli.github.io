@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","515b5012f96d7de8b93de2f86973c2bf"]];
+var precacheConfig = [["index.html","d9625553f23afceebf14d15e44a73148"],["src/nkriti92-github-io-app.html","b6a2f82a62a52d789e75f5ce95005c72"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 
