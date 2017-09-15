@@ -20,14 +20,22 @@
     <slot></slot>
   </template>
   <script>
+    class KnThumbnail extends Polymer.Element {
+      static get is() { 
+        return 'kn-thumbnail';
+      }
+      static get properties() {
+        return {
+          // prop1: {
+          //   type: String,
+          //   value: 'Hello My App'
+          // }
+        };
+      }
+    }
 
-    (function() {
-
-      Polymer({
-        is: 'kn-thumbnail',
-      });
-
-    })();
+    window.customElements.define(KnThumbnail.is, KnThumbnail);
+    
 
   </script>
 </dom-module>

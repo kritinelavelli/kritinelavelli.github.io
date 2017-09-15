@@ -120,7 +120,7 @@
     </app-header>
 
       <div class="content">
-        <app-location route="{{route}}" url-space-regex="^[[rootPath]]"></app-location>
+        <app-location route="{{route}}" url-space-regex="^[[rootPath]]" use-hash-as-path></app-location>
         <app-route route="{{route}}" pattern="[[rootPath]]:page" data = "{{routeData}}" tail="{{subroute}}"></app-route>
         <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
           <kn-home name=""></kn-home>
