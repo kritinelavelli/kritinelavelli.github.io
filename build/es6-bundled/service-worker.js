@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","d9625553f23afceebf14d15e44a73148"],["src/kn-about.html","e51a2e663fadeaca82934c00289422c8"],["src/kn-craigslist.html","bef6bf9e124c773f15e2217b56fac67f"],["src/kn-game-design.html","e48d65059168037a8fb13d066034480b"],["src/kn-global-warming.html","931605e665728bdb54e13fb4c6204c5e"],["src/kn-home.html","e5d938836d2801a22ef34df49ec3016e"],["src/kn-hvz.html","15412c5338300b378670c3cb43ad25c6"],["src/kn-stack-overflow.html","a1b2476cf81dc9e8bf81a26647b1e5fb"],["src/kn-static-code-analyzer.html","0189072a13ea7971357144ace6d757d1"],["src/nkriti92-github-io-app.html","a35ce6556bf63cbe49fa356f52463320"]];
+var precacheConfig = [["index.html","d9625553f23afceebf14d15e44a73148"],["src/kn-about.html","e51a2e663fadeaca82934c00289422c8"],["src/kn-craigslist.html","bef6bf9e124c773f15e2217b56fac67f"],["src/kn-game-design.html","e48d65059168037a8fb13d066034480b"],["src/kn-global-warming.html","931605e665728bdb54e13fb4c6204c5e"],["src/kn-home.html","aa5930274055f996196042c1937a4e5a"],["src/kn-hvz.html","15412c5338300b378670c3cb43ad25c6"],["src/kn-stack-overflow.html","a1b2476cf81dc9e8bf81a26647b1e5fb"],["src/kn-static-code-analyzer.html","0189072a13ea7971357144ace6d757d1"],["src/nkriti92-github-io-app.html","a35ce6556bf63cbe49fa356f52463320"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 
