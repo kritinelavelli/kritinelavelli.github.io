@@ -1,0 +1,382 @@
+/*General Styles*/
+* {
+    box-sizing: border-box;
+}
+html {
+	height: 100%;
+}
+body {
+	position: relative;
+	margin: 0;
+	min-height: 100%;
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: .010em;
+  line-height: 28px;
+}
+p,li {
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: .010em;
+  line-height: 28px;
+}
+h1 {
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 80px;
+  font-weight: 100;
+  letter-spacing: -.044em;
+  line-height: 86px;
+}
+h2 {
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -.026em;
+  line-height: 60px;
+  color: #006269;
+  opacity: 0.5;
+}
+h3 {
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 34px;
+  font-weight: 300;
+  letter-spacing: -.01em;
+  line-height: 40px;
+}
+h4 {
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.001em;
+  line-height: 38px;
+  color: #006269;
+  opacity: 0.5;
+}
+h5 {
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.001em;
+  line-height: 32px;
+}
+.content {
+	padding-bottom: 100px;
+}
+header {
+	position: relative;
+	height: 340px;
+}
+@media only screen and (max-width: 480px) {
+	header {
+		position: relative;
+		height: 440px;
+	}
+}
+.title {
+	bottom: 50px;
+	left: 10%;
+	position: absolute;
+}
+.titlebar {
+	width: 100%;
+	position: relative;
+	position: fixed;
+	top: 0px;
+	background-color: white;
+	z-index: 10;
+}
+.titlebarshadow {
+	box-shadow: rgba(0, 0, 0, 0.24) -2px 5px 12px 0px, rgba(0, 0, 0, 0.12) 0px 0px 12px 0px;
+}
+.hidetitle {
+	visibility: hidden;
+}
+.titlebarbuttons {
+	display: inline-flex;
+	position: absolute;
+	right: 15px;
+}
+.titlebarmenu {
+	display: inline-flex;
+	position: absolute;
+	right: 0px;
+	visibility: hidden;
+}
+@media only screen and (max-width: 480px) {
+	.titlebarbuttons {
+		visibility: hidden;
+	}
+	.titlebarmenu {
+		visibility: visible;
+	}
+}
+.menuitems {
+	position: fixed;
+	right: 10px;
+	top: 60px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.24) -2px 5px 12px 0px, rgba(0, 0, 0, 0.12) 0px 0px 12px 0px;
+	padding-bottom: 15px;
+	visibility: hidden;
+}
+.titlebarbutton {
+	display: inline-flex;
+	height: 30px;
+	padding: 20px;
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  cursor: pointer;
+}
+.logobutton {
+	display:inline-block;
+	width: 50px;
+	height: auto;
+	padding-left: 2%;
+	padding-top: 10px;
+}
+.pagetitle {
+	display: inline-block;
+	position: absolute;
+	top: 0px;
+	padding: 18px;
+	height: 40px;
+	padding-left: 100px;
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: -.012em;
+  line-height: 32px;
+}
+@media only screen and (max-width: 800px) {
+	.pagetitle {
+		padding-left: 25px;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.pagetitle {
+		padding-left: 10px;
+	}
+}
+.logo {
+	height: auto;
+	width: 50px;
+}
+footer {
+	position: absolute;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	padding: 15px;
+	text-align: center;
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+}
+i {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+/*Home Page Styles*/
+.grid {
+	max-width: 1200px;
+	margin: auto;
+}
+.row {
+	width: 100%;
+	height: auto;
+	/*border: dotted red 1px;*/
+
+}
+.padding {
+	padding: 25px;
+}
+.line {
+	border: dotted white 1px;
+	height: 100%;
+	
+}
+.personas {
+	height: 100%;
+	padding: 25px;
+	vertical-align: middle;
+}
+.personastext {
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+	font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  padding: 15px;
+}
+.thumbnail {
+	height: 100%;
+	padding: 25px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.thumbnail:hover {
+	box-shadow: rgba(0, 0, 0, 0.24) -2px 5px 12px 0px, rgba(0, 0, 0, 0.12) 0px 0px 12px 0px;
+}
+.thumbnailtext {
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+	font-size: 24px;
+  font-weight: 300;
+  line-height: 32px;
+  padding: 15px;
+}
+.thumbnailimage {
+	width: 100%;
+	height: auto;
+}
+/*About Page Styles*/
+.profileimage {
+	width: 70%;
+  height: auto;
+  border-radius: 600px;
+  margin-left:50px;
+}
+/*Detail Page Styles*/
+.image{
+  width: 100%;
+  height:100%;
+}
+.leftcol {
+  padding-right: 10px;
+}
+.rightcol {
+  padding-left: 10px;
+}
+.detail {
+	padding: 70px;
+	max-width: 1200px;
+	margin: auto;
+}
+.videocontainer {
+	position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.videocontainer iframe {
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.introtext {
+	font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 32px;
+  letter-spacing: 0.010em;
+  font-style: italic;
+}
+@media only screen and (min-width: 768px) {
+	.videocontainer {
+  	padding-bottom: 30%;
+	}
+}
+.blue {
+	color: rgba(0,98,105,0.5);
+	font-size: 24px;
+  font-weight: 300;
+  line-height: 32px;
+}
+
+
+
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: rgba(0,98,105,0.7);
+    color: #ffffff;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-family: 'Roboto', 'Noto', sans-serif;
+	  -webkit-font-smoothing: antialiased;
+	  font-size: 24px;
+	  font-weight: 300;
+	  letter-spacing: -.01em;
+	  line-height: 32px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: rgba(0,98,105,0.5);
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    background-color: rgba(0,98,105,0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-family: 'Roboto', 'Noto', sans-serif;
+	  -webkit-font-smoothing: antialiased;
+	  font-size: 16px;
+	  font-weight: 300;
+	  letter-spacing: -.01em;
+	  line-height: 24px;
+}
+.border {
+	border-bottom: dotted 1px grey;
+}
+.overlaybackground {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 12;
+	background-color: rgba(0,0,0,0.5);
+	visibility: hidden;
+}
+.overlay {
+	position: fixed;
+	top: 5%;
+	left: 2%;
+	height: 90%;
+	width: 96%;
+	z-index: 15;
+	background-color: white;
+	padding: 25px;
+	overflow-y: auto;
+	visibility: hidden;
+	box-shadow: rgba(0, 0, 0, 0.24) -2px 5px 12px 0px, rgba(0, 0, 0, 0.12) 0px 0px 12px 0px;
+}
+.closebutton {
+	position: fixed;
+	top: 4%;
+	left: 1%;
+	z-index: 20;
+	background-color: white;
+	border-radius: 500px;
+	padding: 10px;
+	cursor: pointer;
+	box-shadow: rgba(0, 0, 0, 0.24) -2px 5px 12px 0px, rgba(0, 0, 0, 0.12) 0px 0px 12px 0px;
+}
+.handwhich {
+	cursor: pointer;
+}
