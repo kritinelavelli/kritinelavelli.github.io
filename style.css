@@ -10,14 +10,41 @@
   display: grid;
   max-width: 1200px;
   margin: auto;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
 }
 .name {
   align-items: flex-end;
   justify-items: self-end;
   display: flex;
   flex-direction: column;
-  min-width: 356px;
+  min-width: 280px;
+}
+@media only screen and (max-width: 600px) {
+  .header {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .name > h1 {
+    font-size: 56px;
+    letter-spacing: -0.044em;
+    line-height: 60px;
+  }
+  .name > h2 {
+    font-size: 34px;
+    letter-spacing: -0.026em;
+    line-height: 40px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .name > h1 {
+    font-size: 34px;
+    letter-spacing: -0.044em;
+    line-height: 40px;
+  }
+  .name > h2 {
+    font-size: 28px;
+    letter-spacing: -0.026em;
+    line-height: 38px;
+  }
 }
 /* @media only screen and (max-width: 480px) {
   header {
