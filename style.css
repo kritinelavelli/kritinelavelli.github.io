@@ -10,7 +10,7 @@
   display: grid;
   max-width: 1200px;
   margin: auto;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: auto auto;
 }
 .name {
   align-items: flex-end;
